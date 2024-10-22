@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+video link: https://drive.google.com/file/d/1ChOJ-Wmab11FrzYiDYul0tuXOVphc41R/view?usp=sharing
+apk link: https://drive.google.com/file/d/1IwFaDWX9a7sLhja_Q5kBahA0zn-Lusbc/view?usp=sharing
 ## Getting Started
 
 This project is a starting point for a Flutter application.

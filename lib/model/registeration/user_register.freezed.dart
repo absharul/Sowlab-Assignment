@@ -20,22 +20,24 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  String get fullName => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get password => throw _privateConstructorUsedError;
-  String get role => throw _privateConstructorUsedError;
-  String get businessName => throw _privateConstructorUsedError;
-  String get informalName => throw _privateConstructorUsedError;
-  String get address => throw _privateConstructorUsedError;
-  String get city => throw _privateConstructorUsedError;
-  String get state => throw _privateConstructorUsedError;
-  int get zipCode => throw _privateConstructorUsedError;
-  String get registrationProof => throw _privateConstructorUsedError;
-  BusinessHours get businessHours => throw _privateConstructorUsedError;
-  String get deviceToken => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  String get socialId => throw _privateConstructorUsedError;
+  String? get fullName => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get password => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
+  String? get businessName => throw _privateConstructorUsedError;
+  String? get informalName => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError; // Nullable
+  String? get city => throw _privateConstructorUsedError; // Nullable
+  String? get state => throw _privateConstructorUsedError; // Nullable
+  int? get zipCode => throw _privateConstructorUsedError; // Nullable
+  String? get registrationProof =>
+      throw _privateConstructorUsedError; // Nullable
+  BusinessHours? get businessHours =>
+      throw _privateConstructorUsedError; // Nullable
+  String? get deviceToken => throw _privateConstructorUsedError; // Nullable
+  String? get type => throw _privateConstructorUsedError; // Nullable
+  String? get socialId => throw _privateConstructorUsedError;
 
   /// Serializes this UserModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,24 +55,24 @@ abstract class $UserModelCopyWith<$Res> {
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call(
-      {String fullName,
-      String email,
-      String phone,
-      String password,
-      String role,
-      String businessName,
-      String informalName,
-      String address,
-      String city,
-      String state,
-      int zipCode,
-      String registrationProof,
-      BusinessHours businessHours,
-      String deviceToken,
-      String type,
-      String socialId});
+      {String? fullName,
+      String? email,
+      String? phone,
+      String? password,
+      String? role,
+      String? businessName,
+      String? informalName,
+      String? address,
+      String? city,
+      String? state,
+      int? zipCode,
+      String? registrationProof,
+      BusinessHours? businessHours,
+      String? deviceToken,
+      String? type,
+      String? socialId});
 
-  $BusinessHoursCopyWith<$Res> get businessHours;
+  $BusinessHoursCopyWith<$Res>? get businessHours;
 }
 
 /// @nodoc
@@ -88,88 +90,88 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullName = null,
-    Object? email = null,
-    Object? phone = null,
-    Object? password = null,
-    Object? role = null,
-    Object? businessName = null,
-    Object? informalName = null,
-    Object? address = null,
-    Object? city = null,
-    Object? state = null,
-    Object? zipCode = null,
-    Object? registrationProof = null,
-    Object? businessHours = null,
-    Object? deviceToken = null,
-    Object? type = null,
-    Object? socialId = null,
+    Object? fullName = freezed,
+    Object? email = freezed,
+    Object? phone = freezed,
+    Object? password = freezed,
+    Object? role = freezed,
+    Object? businessName = freezed,
+    Object? informalName = freezed,
+    Object? address = freezed,
+    Object? city = freezed,
+    Object? state = freezed,
+    Object? zipCode = freezed,
+    Object? registrationProof = freezed,
+    Object? businessHours = freezed,
+    Object? deviceToken = freezed,
+    Object? type = freezed,
+    Object? socialId = freezed,
   }) {
     return _then(_value.copyWith(
-      fullName: null == fullName
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
+              as String?,
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      role: null == role
+              as String?,
+      role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as String,
-      businessName: null == businessName
+              as String?,
+      businessName: freezed == businessName
           ? _value.businessName
           : businessName // ignore: cast_nullable_to_non_nullable
-              as String,
-      informalName: null == informalName
+              as String?,
+      informalName: freezed == informalName
           ? _value.informalName
           : informalName // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
+              as String?,
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      zipCode: null == zipCode
+              as String?,
+      zipCode: freezed == zipCode
           ? _value.zipCode
           : zipCode // ignore: cast_nullable_to_non_nullable
-              as int,
-      registrationProof: null == registrationProof
+              as int?,
+      registrationProof: freezed == registrationProof
           ? _value.registrationProof
           : registrationProof // ignore: cast_nullable_to_non_nullable
-              as String,
-      businessHours: null == businessHours
+              as String?,
+      businessHours: freezed == businessHours
           ? _value.businessHours
           : businessHours // ignore: cast_nullable_to_non_nullable
-              as BusinessHours,
-      deviceToken: null == deviceToken
+              as BusinessHours?,
+      deviceToken: freezed == deviceToken
           ? _value.deviceToken
           : deviceToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      socialId: null == socialId
+              as String?,
+      socialId: freezed == socialId
           ? _value.socialId
           : socialId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
@@ -177,8 +179,12 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $BusinessHoursCopyWith<$Res> get businessHours {
-    return $BusinessHoursCopyWith<$Res>(_value.businessHours, (value) {
+  $BusinessHoursCopyWith<$Res>? get businessHours {
+    if (_value.businessHours == null) {
+      return null;
+    }
+
+    return $BusinessHoursCopyWith<$Res>(_value.businessHours!, (value) {
       return _then(_value.copyWith(businessHours: value) as $Val);
     });
   }
@@ -193,25 +199,25 @@ abstract class _$$UserModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String fullName,
-      String email,
-      String phone,
-      String password,
-      String role,
-      String businessName,
-      String informalName,
-      String address,
-      String city,
-      String state,
-      int zipCode,
-      String registrationProof,
-      BusinessHours businessHours,
-      String deviceToken,
-      String type,
-      String socialId});
+      {String? fullName,
+      String? email,
+      String? phone,
+      String? password,
+      String? role,
+      String? businessName,
+      String? informalName,
+      String? address,
+      String? city,
+      String? state,
+      int? zipCode,
+      String? registrationProof,
+      BusinessHours? businessHours,
+      String? deviceToken,
+      String? type,
+      String? socialId});
 
   @override
-  $BusinessHoursCopyWith<$Res> get businessHours;
+  $BusinessHoursCopyWith<$Res>? get businessHours;
 }
 
 /// @nodoc
@@ -227,88 +233,88 @@ class __$$UserModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullName = null,
-    Object? email = null,
-    Object? phone = null,
-    Object? password = null,
-    Object? role = null,
-    Object? businessName = null,
-    Object? informalName = null,
-    Object? address = null,
-    Object? city = null,
-    Object? state = null,
-    Object? zipCode = null,
-    Object? registrationProof = null,
-    Object? businessHours = null,
-    Object? deviceToken = null,
-    Object? type = null,
-    Object? socialId = null,
+    Object? fullName = freezed,
+    Object? email = freezed,
+    Object? phone = freezed,
+    Object? password = freezed,
+    Object? role = freezed,
+    Object? businessName = freezed,
+    Object? informalName = freezed,
+    Object? address = freezed,
+    Object? city = freezed,
+    Object? state = freezed,
+    Object? zipCode = freezed,
+    Object? registrationProof = freezed,
+    Object? businessHours = freezed,
+    Object? deviceToken = freezed,
+    Object? type = freezed,
+    Object? socialId = freezed,
   }) {
     return _then(_$UserModelImpl(
-      fullName: null == fullName
+      fullName: freezed == fullName
           ? _value.fullName
           : fullName // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: null == password
+              as String?,
+      password: freezed == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as String,
-      role: null == role
+              as String?,
+      role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as String,
-      businessName: null == businessName
+              as String?,
+      businessName: freezed == businessName
           ? _value.businessName
           : businessName // ignore: cast_nullable_to_non_nullable
-              as String,
-      informalName: null == informalName
+              as String?,
+      informalName: freezed == informalName
           ? _value.informalName
           : informalName // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: null == address
+              as String?,
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      city: null == city
+              as String?,
+      city: freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
-              as String,
-      state: null == state
+              as String?,
+      state: freezed == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
-              as String,
-      zipCode: null == zipCode
+              as String?,
+      zipCode: freezed == zipCode
           ? _value.zipCode
           : zipCode // ignore: cast_nullable_to_non_nullable
-              as int,
-      registrationProof: null == registrationProof
+              as int?,
+      registrationProof: freezed == registrationProof
           ? _value.registrationProof
           : registrationProof // ignore: cast_nullable_to_non_nullable
-              as String,
-      businessHours: null == businessHours
+              as String?,
+      businessHours: freezed == businessHours
           ? _value.businessHours
           : businessHours // ignore: cast_nullable_to_non_nullable
-              as BusinessHours,
-      deviceToken: null == deviceToken
+              as BusinessHours?,
+      deviceToken: freezed == deviceToken
           ? _value.deviceToken
           : deviceToken // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
+              as String?,
+      type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      socialId: null == socialId
+              as String?,
+      socialId: freezed == socialId
           ? _value.socialId
           : socialId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -317,58 +323,66 @@ class __$$UserModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserModelImpl implements _UserModel {
   const _$UserModelImpl(
-      {required this.fullName,
-      required this.email,
-      required this.phone,
-      required this.password,
-      required this.role,
-      required this.businessName,
-      required this.informalName,
-      required this.address,
-      required this.city,
-      required this.state,
-      required this.zipCode,
-      required this.registrationProof,
-      required this.businessHours,
-      required this.deviceToken,
-      required this.type,
-      required this.socialId});
+      {this.fullName,
+      this.email,
+      this.phone,
+      this.password,
+      this.role,
+      this.businessName,
+      this.informalName,
+      this.address,
+      this.city,
+      this.state,
+      this.zipCode,
+      this.registrationProof,
+      this.businessHours,
+      this.deviceToken,
+      this.type,
+      this.socialId});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
 
   @override
-  final String fullName;
+  final String? fullName;
   @override
-  final String email;
+  final String? email;
   @override
-  final String phone;
+  final String? phone;
   @override
-  final String password;
+  final String? password;
   @override
-  final String role;
+  final String? role;
   @override
-  final String businessName;
+  final String? businessName;
   @override
-  final String informalName;
+  final String? informalName;
   @override
-  final String address;
+  final String? address;
+// Nullable
   @override
-  final String city;
+  final String? city;
+// Nullable
   @override
-  final String state;
+  final String? state;
+// Nullable
   @override
-  final int zipCode;
+  final int? zipCode;
+// Nullable
   @override
-  final String registrationProof;
+  final String? registrationProof;
+// Nullable
   @override
-  final BusinessHours businessHours;
+  final BusinessHours? businessHours;
+// Nullable
   @override
-  final String deviceToken;
+  final String? deviceToken;
+// Nullable
   @override
-  final String type;
+  final String? type;
+// Nullable
   @override
-  final String socialId;
+  final String? socialId;
 
   @override
   String toString() {
@@ -445,58 +459,58 @@ class _$UserModelImpl implements _UserModel {
 
 abstract class _UserModel implements UserModel {
   const factory _UserModel(
-      {required final String fullName,
-      required final String email,
-      required final String phone,
-      required final String password,
-      required final String role,
-      required final String businessName,
-      required final String informalName,
-      required final String address,
-      required final String city,
-      required final String state,
-      required final int zipCode,
-      required final String registrationProof,
-      required final BusinessHours businessHours,
-      required final String deviceToken,
-      required final String type,
-      required final String socialId}) = _$UserModelImpl;
+      {final String? fullName,
+      final String? email,
+      final String? phone,
+      final String? password,
+      final String? role,
+      final String? businessName,
+      final String? informalName,
+      final String? address,
+      final String? city,
+      final String? state,
+      final int? zipCode,
+      final String? registrationProof,
+      final BusinessHours? businessHours,
+      final String? deviceToken,
+      final String? type,
+      final String? socialId}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
 
   @override
-  String get fullName;
+  String? get fullName;
   @override
-  String get email;
+  String? get email;
   @override
-  String get phone;
+  String? get phone;
   @override
-  String get password;
+  String? get password;
   @override
-  String get role;
+  String? get role;
   @override
-  String get businessName;
+  String? get businessName;
   @override
-  String get informalName;
+  String? get informalName;
   @override
-  String get address;
+  String? get address; // Nullable
   @override
-  String get city;
+  String? get city; // Nullable
   @override
-  String get state;
+  String? get state; // Nullable
   @override
-  int get zipCode;
+  int? get zipCode; // Nullable
   @override
-  String get registrationProof;
+  String? get registrationProof; // Nullable
   @override
-  BusinessHours get businessHours;
+  BusinessHours? get businessHours; // Nullable
   @override
-  String get deviceToken;
+  String? get deviceToken; // Nullable
   @override
-  String get type;
+  String? get type; // Nullable
   @override
-  String get socialId;
+  String? get socialId;
 
   /// Create a copy of UserModel
   /// with the given fields replaced by the non-null parameter values.
@@ -512,8 +526,8 @@ BusinessHours _$BusinessHoursFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BusinessHours {
-  String get openTime => throw _privateConstructorUsedError;
-  String get closeTime => throw _privateConstructorUsedError;
+  String? get openTime => throw _privateConstructorUsedError; // Nullable
+  String? get closeTime => throw _privateConstructorUsedError;
 
   /// Serializes this BusinessHours to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -531,7 +545,7 @@ abstract class $BusinessHoursCopyWith<$Res> {
           BusinessHours value, $Res Function(BusinessHours) then) =
       _$BusinessHoursCopyWithImpl<$Res, BusinessHours>;
   @useResult
-  $Res call({String openTime, String closeTime});
+  $Res call({String? openTime, String? closeTime});
 }
 
 /// @nodoc
@@ -549,18 +563,18 @@ class _$BusinessHoursCopyWithImpl<$Res, $Val extends BusinessHours>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? openTime = null,
-    Object? closeTime = null,
+    Object? openTime = freezed,
+    Object? closeTime = freezed,
   }) {
     return _then(_value.copyWith(
-      openTime: null == openTime
+      openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      closeTime: null == closeTime
+              as String?,
+      closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -573,7 +587,7 @@ abstract class _$$BusinessHoursImplCopyWith<$Res>
       __$$BusinessHoursImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String openTime, String closeTime});
+  $Res call({String? openTime, String? closeTime});
 }
 
 /// @nodoc
@@ -589,18 +603,18 @@ class __$$BusinessHoursImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? openTime = null,
-    Object? closeTime = null,
+    Object? openTime = freezed,
+    Object? closeTime = freezed,
   }) {
     return _then(_$BusinessHoursImpl(
-      openTime: null == openTime
+      openTime: freezed == openTime
           ? _value.openTime
           : openTime // ignore: cast_nullable_to_non_nullable
-              as String,
-      closeTime: null == closeTime
+              as String?,
+      closeTime: freezed == closeTime
           ? _value.closeTime
           : closeTime // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -608,15 +622,16 @@ class __$$BusinessHoursImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$BusinessHoursImpl implements _BusinessHours {
-  const _$BusinessHoursImpl({required this.openTime, required this.closeTime});
+  const _$BusinessHoursImpl({this.openTime, this.closeTime});
 
   factory _$BusinessHoursImpl.fromJson(Map<String, dynamic> json) =>
       _$$BusinessHoursImplFromJson(json);
 
   @override
-  final String openTime;
+  final String? openTime;
+// Nullable
   @override
-  final String closeTime;
+  final String? closeTime;
 
   @override
   String toString() {
@@ -656,16 +671,15 @@ class _$BusinessHoursImpl implements _BusinessHours {
 
 abstract class _BusinessHours implements BusinessHours {
   const factory _BusinessHours(
-      {required final String openTime,
-      required final String closeTime}) = _$BusinessHoursImpl;
+      {final String? openTime, final String? closeTime}) = _$BusinessHoursImpl;
 
   factory _BusinessHours.fromJson(Map<String, dynamic> json) =
       _$BusinessHoursImpl.fromJson;
 
   @override
-  String get openTime;
+  String? get openTime; // Nullable
   @override
-  String get closeTime;
+  String? get closeTime;
 
   /// Create a copy of BusinessHours
   /// with the given fields replaced by the non-null parameter values.

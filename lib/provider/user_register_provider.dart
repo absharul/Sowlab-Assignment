@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'user_model.dart';
+import '../model/registeration/user_register.dart';
 
 final userRegistrationProvider = FutureProvider.autoDispose.family<String, UserModel>((ref, userModel) async {
   final response = await registerUser(userModel);
@@ -10,6 +10,7 @@ final userRegistrationProvider = FutureProvider.autoDispose.family<String, UserM
 
 Future<String> registerUser(UserModel userModel) async {
   const String url = 'https://sowlab.com/assignment/user/register';
+
 
   try {
     final response = await http.post(

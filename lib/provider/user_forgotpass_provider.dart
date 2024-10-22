@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'forgot_password_model.dart';
+import '../model/forgot_pass/forgot_password_model.dart';
+
 
 final forgotPasswordProvider = FutureProvider.autoDispose.family<String, ForgotPasswordModel>((ref, forgotPasswordModel) async {
   final response = await sendForgotPasswordRequest(forgotPasswordModel);

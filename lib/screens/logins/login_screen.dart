@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sowlab/constants/tokens.dart';
+import 'package:sowlab/provider/user_login_provider.dart';
+
+import '../../model/login/login_model.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -13,6 +17,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String? _email;
   String? _password;
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordContoller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +52,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     children: [
                       const Text("New here?"),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go('/signup');
+                        },
                         child: const Text(
                           "Create account",
                           style: TextStyle(color: Colors.redAccent),
@@ -132,7 +141,21 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          // Handle login with _email and _password
+                          final  loginmodel = LoginModel(
+                           email: _emailController.text,
+                            password: _passwordContoller.text,
+                            deviceToken: Tokens.deviceToken,
+                            type: Tokens.type,
+                            socialId: Tokens.socialId,
+                          );
+                          try {
+                            ref.read(userLoginProvider(loginmodel));
+                            context.go('/completionpage');
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('login failed: $e')),
+                            );
+                          }
                         }
                       },
                       style: const ButtonStyle(

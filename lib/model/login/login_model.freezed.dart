@@ -22,7 +22,7 @@ LoginModel _$LoginModelFromJson(Map<String, dynamic> json) {
 mixin _$LoginModel {
   String get email => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  String get role => throw _privateConstructorUsedError;
+  String? get role => throw _privateConstructorUsedError;
   String get deviceToken => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get socialId => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $LoginModelCopyWith<$Res> {
   $Res call(
       {String email,
       String password,
-      String role,
+      String? role,
       String deviceToken,
       String type,
       String socialId});
@@ -69,7 +69,7 @@ class _$LoginModelCopyWithImpl<$Res, $Val extends LoginModel>
   $Res call({
     Object? email = null,
     Object? password = null,
-    Object? role = null,
+    Object? role = freezed,
     Object? deviceToken = null,
     Object? type = null,
     Object? socialId = null,
@@ -83,10 +83,10 @@ class _$LoginModelCopyWithImpl<$Res, $Val extends LoginModel>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      role: null == role
+      role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deviceToken: null == deviceToken
           ? _value.deviceToken
           : deviceToken // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ abstract class _$$LoginModelImplCopyWith<$Res>
   $Res call(
       {String email,
       String password,
-      String role,
+      String? role,
       String deviceToken,
       String type,
       String socialId});
@@ -135,7 +135,7 @@ class __$$LoginModelImplCopyWithImpl<$Res>
   $Res call({
     Object? email = null,
     Object? password = null,
-    Object? role = null,
+    Object? role = freezed,
     Object? deviceToken = null,
     Object? type = null,
     Object? socialId = null,
@@ -149,10 +149,10 @@ class __$$LoginModelImplCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      role: null == role
+      role: freezed == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       deviceToken: null == deviceToken
           ? _value.deviceToken
           : deviceToken // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,7 @@ class _$LoginModelImpl implements _LoginModel {
   const _$LoginModelImpl(
       {required this.email,
       required this.password,
-      required this.role,
+      this.role,
       required this.deviceToken,
       required this.type,
       required this.socialId});
@@ -188,7 +188,7 @@ class _$LoginModelImpl implements _LoginModel {
   @override
   final String password;
   @override
-  final String role;
+  final String? role;
   @override
   final String deviceToken;
   @override
@@ -242,7 +242,7 @@ abstract class _LoginModel implements LoginModel {
   const factory _LoginModel(
       {required final String email,
       required final String password,
-      required final String role,
+      final String? role,
       required final String deviceToken,
       required final String type,
       required final String socialId}) = _$LoginModelImpl;
@@ -255,7 +255,7 @@ abstract class _LoginModel implements LoginModel {
   @override
   String get password;
   @override
-  String get role;
+  String? get role;
   @override
   String get deviceToken;
   @override

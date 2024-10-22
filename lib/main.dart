@@ -14,6 +14,8 @@ import 'package:sowlab/screens/signups/verification.dart';
 import 'package:sowlab/screens/splash_screen.dart';
 import 'package:sowlab/screens/logins/verify_otp.dart';
 
+import 'model/registeration/user_register.dart';
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -28,16 +30,16 @@ class MyApp extends StatelessWidget {
       routerConfig: GoRouter(
         initialLocation: '/', // Set initial route
         routes: [
-          // GoRoute(path: '/',
-          //   builder: (context, state) {
-          //     return SplashScreen(); // First screen shown
-          //   },
-          // ),
-          // GoRoute(path: '/onboarding',
-          //   builder: (context, state) {
-          //     return OnboardingScreen();
-          //   },
-          // ),
+          GoRoute(path: '/',
+            builder: (context, state) {
+              return SplashScreen(); // First screen shown
+            },
+          ),
+          GoRoute(path: '/onboarding',
+            builder: (context, state) {
+              return OnboardingScreen();
+            },
+          ),
           GoRoute(path: '/login',
             builder: (context, state) {
               return LoginScreen();
@@ -60,6 +62,24 @@ class MyApp extends StatelessWidget {
           ),
           GoRoute(path: '/signup',
             builder: (context, state) {
+              final userModel = UserModel(
+                fullName: '',
+                email: '',
+                phone: '',
+                password: '',
+                role: '',
+                businessName: '',
+                informalName: '',
+                address: '',
+                city: '',
+                state: '',
+                zipCode: 0,
+                registrationProof: '',
+                businessHours: BusinessHours(openTime: '', closeTime: ''),
+                deviceToken: '',
+                type: '',
+                socialId: '',
+              );
               return SignUp();
             },
           ),
@@ -75,10 +95,10 @@ class MyApp extends StatelessWidget {
           ),
           GoRoute(path: '/business',
             builder: (context, state) {
-              return BusinessHours();
+              return BusinessHoursSelection();
             },
           ),
-          GoRoute(path: '/',
+          GoRoute(path: '/completionpage',
             builder: (context, state) {
               return CompletionPage();
             },

@@ -1,7 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sowlab/provider/user_register_provider.dart';
+import '../../model/registeration/user_register.dart';
 
 class Verification extends ConsumerStatefulWidget {
   const Verification({super.key});
@@ -11,6 +14,9 @@ class Verification extends ConsumerStatefulWidget {
 }
 
 class _VerificationState extends ConsumerState<Verification> {
+
+  String? _imagePath;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +63,9 @@ class _VerificationState extends ConsumerState<Verification> {
                           final ImagePicker picker = ImagePicker();
                           final XFile? image = await picker.pickImage(source: ImageSource.gallery);
                           if (image != null) {
+                            setState(() {
+                              _imagePath = image.path;
+                            });
                           }
                         },
                         child: Container(
@@ -72,6 +81,17 @@ class _VerificationState extends ConsumerState<Verification> {
                     ],
                   ),
                 ),
+                const SizedBox(height: 20.0),
+                if (_imagePath != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Image.file(
+                      File(_imagePath!),
+                      height: 200, // Adjust height as needed
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.5),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -87,7 +107,20 @@ class _VerificationState extends ConsumerState<Verification> {
                       height: MediaQuery.of(context).size.height * 0.05,
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                            if(_imagePath != null){
+                              UserModel userModel  = UserModel(
+                                registrationProof: _imagePath,
+                              );
+                             final result = await ref.read(userRegistrationProvider(userModel));
+                             context.go('/business');
+                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(result.toString())));
+                            }
+                            else{
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Please select an image before continuing.')),
+                              );
+                            }
                           },
                         style: const ButtonStyle(
                           minimumSize: WidgetStatePropertyAll(Size(double.infinity, 50)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 class CompletionPage extends ConsumerStatefulWidget {
   const CompletionPage({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class _CompletionPageState extends ConsumerState<CompletionPage> {
               height: 50.0,
               child: ElevatedButton(
                 onPressed: () {
-                  // Handle button press or navigation here
+                 context.go('/login');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,

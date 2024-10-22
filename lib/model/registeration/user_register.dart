@@ -6,22 +6,22 @@ part 'user_register.g.dart';
 @freezed
 class UserModel with _$UserModel {
   const factory UserModel({
-    required String fullName,
-    required String email,
-    required String phone,
-    required String password,
-    required String role,
-    required String businessName,
-    required String informalName,
-    required String address,
-    required String city,
-    required String state,
-    required int zipCode,
-    required String registrationProof,
-    required BusinessHours businessHours,
-    required String deviceToken,
-    required String type,
-    required String socialId,
+    String? fullName,
+    String? email,
+    String? phone,
+    String? password,
+    String? role,
+    String? businessName,
+    String? informalName,
+    String? address, // Nullable
+    String? city,    // Nullable
+    String? state,   // Nullable
+    int? zipCode,    // Nullable
+    String? registrationProof, // Nullable
+    BusinessHours? businessHours, // Nullable
+    String? deviceToken,  // Nullable
+    String? type,         // Nullable
+    String? socialId,     // Nullable
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
@@ -31,10 +31,11 @@ class UserModel with _$UserModel {
 @freezed
 class BusinessHours with _$BusinessHours {
   const factory BusinessHours({
-    required String openTime,
-    required String closeTime,
+    String? openTime,   // Nullable
+    String? closeTime,  // Nullable
   }) = _BusinessHours;
 
   factory BusinessHours.fromJson(Map<String, dynamic> json) =>
       _$BusinessHoursFromJson(json);
 }
+

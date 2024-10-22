@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'verify_otp_model.dart';
+import '../model/OTP/verify_otp_model.dart';
 
 final verifyOtpProvider = FutureProvider.autoDispose.family<String, VerifyOtpModel>((ref, verifyOtpModel) async {
   final response = await sendOtpVerificationRequest(verifyOtpModel);

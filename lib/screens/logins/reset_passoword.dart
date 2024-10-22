@@ -130,7 +130,7 @@ class _ResetPassowordState extends ConsumerState<ResetPassoword> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          // Handle login with _email and _password
+                          context.go('/login');
                         }
                       },
                       style: const ButtonStyle(

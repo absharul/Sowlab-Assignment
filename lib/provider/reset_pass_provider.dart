@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'reset_password_model.dart';
+
+import '../model/ResetPass/reset_password_model.dart';
+
 
 final resetPasswordProvider = FutureProvider.autoDispose.family<String, ResetPasswordModel>((ref, resetPasswordModel) async {
   final response = await sendResetPasswordRequest(resetPasswordModel);

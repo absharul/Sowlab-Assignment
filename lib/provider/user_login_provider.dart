@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
-import 'login_model.dart';
+import '../model/login/login_model.dart';
 
 final userLoginProvider = FutureProvider.autoDispose.family<String, LoginModel>((ref, loginModel) async {
   final response = await loginUser(loginModel);

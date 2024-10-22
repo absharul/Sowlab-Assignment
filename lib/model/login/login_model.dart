@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:sowlab/constants/tokens.dart';
 
 part 'login_model.freezed.dart';
 part 'login_model.g.dart';
@@ -8,7 +9,7 @@ class LoginModel with _$LoginModel {
   const factory LoginModel({
     required String email,
     required String password,
-    required String role,
+    String? role,
     required String deviceToken,
     required String type,
     required String socialId,

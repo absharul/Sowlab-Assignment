@@ -2,93 +2,77 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-class BusinessHours extends ConsumerStatefulWidget {
-  const BusinessHours({super.key});
+import '../../model/registeration/user_register.dart';
+import '../../provider/user_register_provider.dart';
+
+class BusinessHoursSelection extends ConsumerStatefulWidget {
+  const BusinessHoursSelection({super.key});
 
   @override
-  ConsumerState<BusinessHours> createState() => _BusinessHoursState();
+  ConsumerState<BusinessHoursSelection> createState() => _BusinessHoursSelectionState();
 }
 
-class _BusinessHoursState extends ConsumerState<BusinessHours> {
+class _BusinessHoursSelectionState extends ConsumerState<BusinessHoursSelection> {
   String selectedDay = 'M';
-  List<String> selectedTimeSlots = ['8:00am - 10:00am', '4:00pm - 7:00pm'];
+  List<String> selectedTimeSlots = [];
+
+  List<String> getTimeSlots() {
+    return [
+      '8:00am - 10:00am',
+      '10:00am - 1:00pm',
+      '1:00pm - 4:00pm',
+      '4:00pm - 7:00pm',
+      '7:00pm - 10:00pm',
+    ];
+  }
+
+  Future<void> updateBusinessHours() async {
+    final businessHours = BusinessHours(
+      openTime: selectedTimeSlots.first,
+      closeTime: selectedTimeSlots.last,
+    );
+
+    UserModel userModel = UserModel(businessHours: businessHours);
+    await ref.read(userRegistrationProvider(userModel).future);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('Business Hours')),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 10.0),
-                child: Text('Farmereats'),
-              ),
-              const SizedBox(height: 20.0),
-              const Padding(
-                padding: EdgeInsets.only(left: 10.0),
-                child: Text(
-                  'Business Hours',
-                  style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
-                ),
-              ),
-              const SizedBox(height: 10.0),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Choose the hours your farm is open for pickups.',
-                  style: TextStyle(
-                    color: Colors.black.withOpacity(0.5),
-                    fontSize: 16,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(height: 20.0),
+              const Text('Choose the hours your farm is open for pickups.', style: TextStyle(fontSize: 16)),
+              const SizedBox(height: 20),
 
               // Days of the week selection
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'].map((day) {
                   return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        selectedDay = day;
-                      });
-                    },
+                    onTap: () => setState(() => selectedDay = day),
                     child: Container(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         color: selectedDay == day ? Colors.orange : Colors.grey[200],
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Text(
-                        day,
-                        style: TextStyle(
-                          color: selectedDay == day ? Colors.white : Colors.black,
-                          fontSize: 16.0,
-                        ),
-                      ),
+                      child: Text(day, style: TextStyle(color: selectedDay == day ? Colors.white : Colors.black)),
                     ),
                   );
                 }).toList(),
               ),
 
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 20),
 
               Wrap(
-                spacing: 10.0,
+                spacing: 10,
                 runSpacing: 10.0,
-                children: [
-                  '8:00am - 10:00am',
-                  '10:00am - 1:00pm',
-                  '1:00pm - 4:00pm',
-                  '4:00pm - 7:00pm',
-                  '7:00pm - 10:00pm',
-                ].map((timeSlot) {
+                children: getTimeSlots().map((timeSlot) {
                   return GestureDetector(
                     onTap: () {
                       setState(() {
@@ -100,23 +84,13 @@ class _BusinessHoursState extends ConsumerState<BusinessHours> {
                       });
                     },
                     child: Container(
-                      width: 180.0,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20.0, horizontal: 25.0),
+                      width: 180,
+                      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 25),
                       decoration: BoxDecoration(
-                        color: selectedTimeSlots.contains(timeSlot)
-                            ? Colors.green
-                            : Colors.grey[200],
-                        borderRadius: BorderRadius.circular(8.0),
+                        color: selectedTimeSlots.contains(timeSlot) ? Colors.green : Colors.grey[200],
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Text(
-                        timeSlot,
-                        style: TextStyle(
-                          color: selectedTimeSlots.contains(timeSlot)
-                              ? Colors.white
-                              : Colors.black,
-                        ),
-                      ),
+                      child: Text(timeSlot, style: TextStyle(color: selectedTimeSlots.contains(timeSlot) ? Colors.white : Colors.black)),
                     ),
                   );
                 }).toList(),
@@ -127,32 +101,37 @@ class _BusinessHoursState extends ConsumerState<BusinessHours> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
-                    onPressed: () {
-                      context.pop();
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      size: 30,
-                    ),
+                    onPressed: () => context.pop(),
+                    icon: const Icon(Icons.arrow_back, size: 30),
                   ),
-                  const Expanded(child: SizedBox()),
+                  Expanded(child: SizedBox()),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                    height: 50,
                     width: MediaQuery.of(context).size.width * 0.5,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        if (selectedTimeSlots.isNotEmpty) {
+                          try {
+                            await updateBusinessHours();
+                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Business hours updated successfully.')));
+                            context.go('/completionpage');
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+                          }
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please select at least one time slot.')));
+                        }
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
                         foregroundColor: Colors.white,
-                        minimumSize: const Size(double.infinity, 50),
-                        maximumSize: const Size(double.infinity, 50),
                       ),
                       child: const Text('Continue'),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+              const SizedBox(height: 20),
             ],
           ),
         ),
